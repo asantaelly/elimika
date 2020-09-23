@@ -1,24 +1,3 @@
-@extends('dashboards.student.index')
-
-@section('content')
-
-{{-- <div class="row">
-
-            @foreach($courses as $course)
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-success text-white mb-4">
-                        <div class="card-body">{{ $course->course_name}}</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="{{ route('read.course', [ 'id' => $course->id])}}">
-                                Continue to read!
-                            </a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-</div> --}}
-
 @extends('dashboards.instructor.index')
 
 @section('content')
@@ -83,6 +62,4 @@
         text-decoration: none;
         }
     </style>
-@endsection
-
 @endsection

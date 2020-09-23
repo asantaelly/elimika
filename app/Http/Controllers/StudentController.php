@@ -32,12 +32,19 @@ class StudentController extends Controller
         $courses = Course::all();
 
         // return dd($user->courses);
-        return redirect()->route('show.students.course');
+        if($user->courses) {
 
-        // return view('dashboards/student/index')->with([
-        //             'user' => $user,
-        //             'courses' => $courses,
-        //         ]);
+            return redirect()->route('show.students.course');
+
+        } else {
+
+            return view('dashboards/student/index')->with([
+                    'user' => $user,
+                    'courses' => $courses,
+                ]);
+        }
+
+        
     }
 
     // Return available courses for student to be enrolled to
@@ -78,17 +85,10 @@ class StudentController extends Controller
     public function showStudentsCourse(Request $request){
 
         $user = Auth::user();
-        $user_courses = DB::table('course_user')
-                    ->where('user_id', $user->id)->get();
-        foreach($user_courses as $course){
-            $getCourse = DB::table('courses')
-                ->where('id', $course->course_id)->first();
-            $courses[] = $getCourse;
-        }
 
         return view('dashboards/student/student_course')->with([
             'user' => $user,
-            'courses' => $courses
+            'courses' => $user->courses
         ]);
 
     }
