@@ -38,7 +38,7 @@ class HomeController extends Controller
                 return redirect()->action('AdminController@index');
                 break;
             default:
-                return route('login');
+                return view('auth.login');
                 break;
         }
     }
