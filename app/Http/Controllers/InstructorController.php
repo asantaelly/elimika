@@ -40,6 +40,8 @@ class InstructorController extends Controller
         $notes_counter = 0;
         $overall_students = array();
 
+        // return dd($user->role);
+
         foreach($courses as $course){
 
             $students = $course->users()->where('role', 'student')->get();

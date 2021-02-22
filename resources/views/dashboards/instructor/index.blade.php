@@ -138,7 +138,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Elimika-Online 2020</div>
+                            <div class="text-muted">&copy; Elimika-Online {{ date('Y')}}</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

@@ -26,25 +26,32 @@ class StudentController extends Controller
     }
 
     // Return student dashboard
-    public function index(){
+    public function index() {
 
         $user = Auth::user();
         $courses = Course::all();
 
-        // return dd($user->courses);
-        if($user->courses) {
+        if(count($user->courses) > 0) {
 
             return redirect()->route('show.students.course');
 
         } else {
 
-            return view('dashboards/student/index')->with([
-                    'user' => $user,
-                    'courses' => $courses,
-                ]);
-        }
+            return redirect()->route('courses.list');
 
-        
+        }
+ 
+    }
+
+    public function availableCourses() {
+
+        $user = Auth::user();
+        $courses = Course::all();
+
+        return view('dashboards/student/available_courses')->with([
+            'user' => $user,
+            'courses' => $courses,
+        ]);
     }
 
     // Return available courses for student to be enrolled to
@@ -58,8 +65,11 @@ class StudentController extends Controller
     public function showCourse($id){
 
         $course = Course::find($id);
+        $user = Auth::user();
+
         return view('dashboards/student/show_course')->with([
             'course' => $course,
+            'user' => $user,
         ]);
     
     }

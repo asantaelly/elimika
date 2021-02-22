@@ -81,6 +81,7 @@ Route::prefix('student')->middleware('role:student')->group(function (){
     Route::get('/', 'StudentController@index')->name('student.dashboard');
     Route::get('/courses', 'StudentController@showCourses')->name('student.courses');
     Route::get('/course/{id}', 'StudentController@showCourse')->name('show.course');
+    Route::get('/list/courses', 'StudentController@availableCourses')->name('courses.list');
     Route::post('/course/{id}', 'StudentController@storeUserCourse')->name('store.user.course');
     Route::get('/course', 'StudentController@showStudentsCourse')->name('show.students.course');
     Route::get('/read_course/{id}', 'StudentController@student_reading')->name('read.course');

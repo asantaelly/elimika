@@ -93,7 +93,8 @@
                                     </a> --}}
                                 <a class="nav-link" href="{{ route('show.students.course')}}"
                                     ><div class="sb-nav-link-icon"><i class="fas fa-book-reader"></i></div>
-                                    Courses</a>
+                                    Courses
+                                </a>
                                 {{-- <a class="nav-link" href="#"
                                     ><div class="sb-nav-link-icon"><i class="fas fa-landmark"></i></div>
                                     Payment Records</a
@@ -129,48 +130,19 @@
             </div>
 
             <div id="layoutSidenav_content">
+
                 <main>
                     <div class="container-fluid">
 
-                        @if ($user->courses->isNotEmpty())
-                            {{-- <h4 class="mt-4">Welcome to Online School, Student.</h4> --}}
-                            <br><br>
-                        @endif
-
-                        
-                        @if($user->courses->isEmpty())
-
-                            <h4 class="mt-4">
-                                Choose course and start learning...
-                            </h4>
-
-                            <div class="row">
-                                @foreach($courses as $course)
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card text-dark border-info mb-4">
-                                            <div class="card-body">
-                                            <div class="card-title">{{ $course->course_name}}</div>
-                                            <div class="card-text d-flex align-items-center justify-content-between">
-                                                <a class="small stretched-link" href="{{ route('show.course', [ 'id' => $course->id])}}">
-                                                    View Course Details
-                                                </a>
-                                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @else
                             {{-- Contents from other pages --}}
                             @yield('content')
-                        @endif
                     </div>
                 </main>
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Elimika-Online 2020</div>
+                            <div class="text-muted">&copy; Elimika-Online {{date('Y')}}</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
