@@ -27,16 +27,15 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        // return dd($user->role);
         
         switch ($user->role) {
             case "student":
                 return redirect()->action('StudentController@index');
                 break;
-            case '':
+            case "instructor":
                 return redirect()->action('InstructorController@index');
                 break;
-            case 'admin':
+            case "admin":
                 return redirect()->action('AdminController@index');
                 break;
             default:
