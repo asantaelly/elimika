@@ -3,11 +3,9 @@
 *.scss linguist-vendored
 *.js linguist-vendored
 *.html linguist-vendored
-*.blade.php linguist-vendored
 *.php linguist-vendored=false
 /resources/* linguist-vendored
 
-*.blade.php linguist-detectable=false
 *.php linguist-detectable=true
 *.html linguist-detectable=false
 CHANGELOG.md export-ignore
